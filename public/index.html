@@ -52,44 +52,21 @@
     <!--<script src="app/components/winLose/winLose.component.js"></script>
     <script src="app/components/winLose/winLose.controller.js"></script>-->
 
-
-
-
     <script src="app/controllers/app.controller.js"></script>
     <script src="app/dialogs/loading/loading-dialog.controller.js"></script>
     <script src="app/controllers/speedtest.controller.js"></script>
     
-
     <script src="app/services/http.service.js"></script>
-    
-
-
-
     <title>Fastr</title>
-
-
-
-
-
 </head>
-
-
-<body ng-app="fastrApp" ng-cloak ng-controller="AppController" layout='column'>
-    <md-toolbar>
-        <div class="md-toolbar-tools">
-
-
-            <h2 flex md-truncate>Fastr | GM Internet Speeds</h2>
-
-
+     <body ng-app="fastrApp" ng-cloak ng-controller="AppController" layout='column'>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 flex md-truncate>Fastr | Internet Speed Tracker</h2>
+            </div>
+        </md-toolbar>
+        <div>
+            <div ui-view="speedtestview"></div>
         </div>
-    </md-toolbar>
-    <div>
-        <div ui-view="speedtest"></div>
-
-    </div>
-
-
-</body>
-
+    </body>
 </html>

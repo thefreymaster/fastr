@@ -14,15 +14,12 @@ $stateProvider.state('speedtest', {
                 url: '/',
                 views: {
                     
-                    'speedtest': {
+                    'speedtestview': {
                         templateUrl: "app/views/speedtest.view.html",
                         controller: 'SpeedTestController'
                     }
                 }
             })
-
-        
-
   $urlRouterProvider.otherwise('/');
 
 });

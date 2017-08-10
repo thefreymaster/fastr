@@ -1,38 +1,53 @@
 <md-progress-linear ng-if='showProgress' md-mode="indeterminate"></md-progress-linear>
-<div layout='row' layout-align='center center' layout-padding layout-wrap>
+<md-grid-list md-cols="12" md-gutter="1em" md-row-height="4:3" class='top-gutter'>
+
+    <md-grid-tile md-rowspan="2" md-colspan="1"></md-grid-tile>
+
+    <md-grid-tile class="fastr-card md-whiteframe-1dp" ng-if='data[0].length != 0' md-rowspan="3" md-colspan="5">
+        <div class='speed' ng-if='data[0].length != 0'>{{currentSpeed}} Mbs</div>
+    </md-grid-tile>
+    <md-grid-tile class="fastr-card md-whiteframe-1dp" ng-if='data[0].length != 0' md-rowspan="3" md-colspan="5">
+        <canvas chart-colors="colors" id="bar" chart-options="optionsBar" class="chart chart-bar" chart-data="dataBar" chart-labels="labelsBar"
+            chart-series="seriesBar">
+        </canvas>
+    </md-grid-tile>
+
+    <md-grid-tile md-rowspan="2" md-colspan="1"></md-grid-tile>
+    <md-grid-tile md-rowspan="3" md-colspan="1"></md-grid-tile>
+
+    <md-grid-tile class="fastr-card md-whiteframe-1dp" ng-if='data[0].length != 0' md-rowspan="7" md-colspan="10">
+        <canvas chart-colors="colors" id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series"
+            chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+        </canvas </md-card>
+    </md-grid-tile>
+    <md-grid-tile md-rowspan="3" md-colspan="1"></md-grid-tile>
+
+</md-grid-list>
 
 
-    <div flex='80'>
-        <div class='text'>Current GM Internet Speed</div>
-    </div>
-    <div ng-if='showProgress' flex='100' layout='row' layout-align='center center'>
-        <div>
-            <md-progress-circular  md-diameter="150"></md-progress-circular>
-        </div>
 
-    </div>  
-    <div flex='100'>
-        <div class='speed' ng-if='currentSpeed != ""'>{{currentSpeed}} Mbs</div>
 
-    </div>
-    <!--<div flex='40' >
-        <div class='center metric'>Peak {{max}} Mbs</div>
-        
-    </div>
-    <div flex='40'>
-        <div class='center metric'>Low {{min}} Mbs</div>
 
-        
-    </div>-->
 
-    <div flex='70'>
-        <md-card ng-if='data[0].length != 0'>
-            <md-card-content>
-                <canvas chart-colors="colors" id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"
-                    chart-dataset-override="datasetOverride" chart-click="onClick">
-                </canvas </md-card>
-            </md-card-content>
-        </md-card>
-    </div>  
-
-</div>
+<!--
+<md-content layout='row' layout-align='center center' layout-wrap flex>
+    <md-card flex='45' ng-if='data[0].length != 0'>
+        <md-card-content>
+            <div class='speed' ng-if='data[0].length != 0'>{{currentSpeed}} Mbs</div>
+        </md-card-content>
+    </md-card>
+    <md-card flex='45' ng-if='data[0].length != 0'>
+        <md-card-content>
+            <canvas chart-colors="colors" id="bar" chart-options="optionsBar" class="chart chart-bar" chart-data="dataBar" chart-labels="labelsBar"
+                chart-series="seriesBar">
+            </canvas>
+        </md-card-content>
+    </md-card>
+    <md-card flex='90' ng-if='data[0].length != 0'>
+        <md-card-content>
+            <canvas chart-colors="colors" id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series"
+                chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+            </canvas </md-card>
+        </md-card-content>
+    </md-card>
+</md-content>
