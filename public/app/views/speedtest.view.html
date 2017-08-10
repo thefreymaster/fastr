@@ -1,0 +1,38 @@
+<md-progress-linear ng-if='showProgress' md-mode="indeterminate"></md-progress-linear>
+<div layout='row' layout-align='center center' layout-padding layout-wrap>
+
+
+    <div flex='80'>
+        <div class='text'>Current GM Internet Speed</div>
+    </div>
+    <div ng-if='showProgress' flex='100' layout='row' layout-align='center center'>
+        <div>
+            <md-progress-circular  md-diameter="150"></md-progress-circular>
+        </div>
+
+    </div>  
+    <div flex='100'>
+        <div class='speed' ng-if='currentSpeed != ""'>{{currentSpeed}} Mbs</div>
+
+    </div>
+    <!--<div flex='40' >
+        <div class='center metric'>Peak {{max}} Mbs</div>
+        
+    </div>
+    <div flex='40'>
+        <div class='center metric'>Low {{min}} Mbs</div>
+
+        
+    </div>-->
+
+    <div flex='70'>
+        <md-card ng-if='data[0].length != 0'>
+            <md-card-content>
+                <canvas chart-colors="colors" id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"
+                    chart-dataset-override="datasetOverride" chart-click="onClick">
+                </canvas </md-card>
+            </md-card-content>
+        </md-card>
+    </div>  
+
+</div>
